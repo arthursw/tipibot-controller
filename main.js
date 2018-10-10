@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu, MenuItem } = require('electron')
 
 const Store = require('./store.js')
 
@@ -41,6 +41,19 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+
+  const menu = new Menu()
+
+  menu.append(new MenuItem({
+    label: 'Toggle full screen',
+    accelerator: 'CommandOrControl+F',
+    // accelerator: process.platform === 'darwin' ? 'Cmd+F' : 'Ctrl+F',
+    click: () => {
+      console.log('toggle full screen')
+      mainWindow.setFullScreen(mainWindow.isFullScreen())
+    }
+  }))
 }
 
 // This method will be called when Electron has finished
@@ -64,6 +77,7 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
