@@ -1,11 +1,14 @@
 {
-  "name": "electron-quick-start",
+  "name": "tipibot-controller",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A controller for the tipibot",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "install": "electron-rebuild"
+    "install": "electron-rebuild",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "pack:win": "rm -rf build dist && electron-packager . yeti-desktop --asar --prune --platform=win32 --arch=x64 --out=build"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -15,14 +18,21 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "IDLV - Arthur Masson",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^2.0.2",
+    "electron-builder": "^20.28.1",
     "electron-rebuild": "^1.7.3"
   },
   "dependencies": {
-    "socket.io": "^2.1.1",
-    "serialport": "^6.2.0"
+    "serialport": "^6.2.0",
+    "socket.io": "^2.1.1"
+  },
+  "build": {
+    "appId": "tipibot-controller",
+    "mac": {
+      "category": "public.app-category.utilities"
+    }
   }
 }
