@@ -6,27 +6,22 @@
   "scripts": {
     "start": "electron .",
     "install": "electron-rebuild",
-    "pack": "electron-builder --dir",
+    "pack": "electron-packager . tipibot-controller --platform=darwin --arch=x64",
     "dist": "electron-builder",
-    "pack:win": "rm -rf build dist && electron-packager . yeti-desktop --asar --prune --platform=win32 --arch=x64 --out=build"
+    "pack:win": "electron-packager . tipibot-controller --platform=win32 --arch=x64"
   },
   "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
+  "keywords": [],
   "author": "IDLV - Arthur Masson",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^2.0.2",
-    "electron-builder": "^20.28.1",
-    "electron-rebuild": "^1.7.3"
+    "electron": "^3.0.5",
+    "electron-builder": "^20.28.4",
+    "electron-rebuild": "^1.8.2"
   },
   "dependencies": {
-    "serialport": "^6.2.0",
+    "electron-packager": "^12.2.0",
+    "serialport": "^7.0.2",
     "socket.io": "^2.1.1"
   },
   "build": {
