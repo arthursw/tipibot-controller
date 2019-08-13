@@ -1,6 +1,7 @@
-node_modules
+node_modules/
 .DS_Store
 serial-websocket/
 tipibot-controller-gui/
 tipibot-controller-darwin-x64/
+tipibot-controller-win32-x64/
 dist/
