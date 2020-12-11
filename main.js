@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, Menu, MenuItem } = require('electron')
 
+
 const Store = require('./store.js')
 
 // Create a store to load config file
