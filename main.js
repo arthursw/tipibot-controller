@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, Menu, MenuItem } = require('electron')
-
+const { session } = require('electron')
 
 const Store = require('./store.js')
 
@@ -20,17 +20,23 @@ const serialWebsocket = require('./serial-websocket/serial-websocket.js')
 let mainWindow
 
 function createWindow () {
-
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+      callback({ responseHeaders: Object.assign({
+          "Content-Security-Policy": [ "default-src 'self'" ]
+      }, details.responseHeaders)});
+  });
+  
   // start serial-websocket
   let port = store.get('port')
   serialWebsocket(port)
 
   // Create the browser window.
-  mainWindow = new BrowserWindow({show: false})
+  mainWindow = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }})
   mainWindow.maximize()
+  // mainWindow.setFullScreen(true)
   mainWindow.show()
 
-  mainWindow.loadFile('tipibot-controller-gui/index.html')
+  mainWindow.loadFile('./tipibot-controller-gui/index.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
