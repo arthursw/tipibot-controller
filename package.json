@@ -29,7 +29,7 @@
     "socketio": "^1.0.0",
     "three": "^0.83.0",
     "three.meshline": "^1.0.3",
-    "ws": "^5.2.0"
+    "ws": "^7.4.6"
   },
   "build": {
     "appId": "tipibot-controller",
