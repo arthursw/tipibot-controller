@@ -15,7 +15,7 @@
   "author": "IDLV - Arthur Masson",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^6.0.9",
+    "electron": "^18.3.7",
     "electron-builder": "^21.2.0",
     "electron-packager": "^14.2.1",
     "electron-rebuild": "^1.8.2"
