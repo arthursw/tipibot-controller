@@ -5,5 +5,7 @@ tipibot-controller-gui/
 tipibot-controller-darwin-x64/
 tipibot-controller-win32-x64/
 tipibot-controller-linux-x64/
+tipibot-controller-darwin-arm64/
+tipibot-controller-linux-armv7l/
 dist/
 tipibot-controller-gui

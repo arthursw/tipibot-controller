@@ -22,7 +22,7 @@ let mainWindow
 function createWindow () {
   session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
       callback({ responseHeaders: Object.assign({
-          "Content-Security-Policy": [ "default-src 'self'" ]
+          "Content-Security-Policy": [ "connect-src 'self' ws://localhost:6842" ]
       }, details.responseHeaders)});
   });
   
